@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import NeueMontreal from "./fonts";
 import Navbar from "@/components/navbar/navbar";
+import { ThemeProvider } from "@/components/theme/theme-provider";
+import TailwindIndicator from "@/components/shared/tailwind-indicator";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,8 +18,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={NeueMontreal.className}>
-        <Navbar />
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Navbar />
+          {children}
+          <TailwindIndicator />
+        </ThemeProvider>
       </body>
     </html>
   );

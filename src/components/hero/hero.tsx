@@ -1,4 +1,9 @@
-import { PageHeader, PageHeaderHeading } from "../shared/page-header";
+import {
+  PageHeader,
+  PageHeaderDescription,
+  PageHeaderHeading,
+} from "../shared/page-header";
+import StatusBadge from "../shared/status-badge";
 
 const Hero = () => {
   return (
@@ -7,6 +12,9 @@ const Hero = () => {
         Creating digital spaces people love. Mixing creativity and technology to
         create a meaningful impact in the world.
       </PageHeaderHeading>
+      <PageHeaderDescription>
+        <StatusBadge />
+      </PageHeaderDescription>
     </PageHeader>
   );
 };

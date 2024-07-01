@@ -9,3 +9,10 @@ interface Link {
 interface Menu {
   links: Link[];
 }
+
+interface Project {
+  title: string;
+  tag: string;
+  details: string;
+  link?: Link;
+}

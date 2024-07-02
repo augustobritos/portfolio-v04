@@ -5,6 +5,7 @@ import { PortableText } from "next-sanity";
 import Image from "next/image";
 
 import Text from "@/components/shared/text";
+import DynamicBreadcrumb from "@/components/shared/dynamic-breadcrumb";
 
 type Props = {
   params: { slug: string };
@@ -38,6 +39,8 @@ export default async function BlogPost({ params }: Props) {
       >
         {post.title}
       </Text>
+
+      <DynamicBreadcrumb />
 
       <div className="flex flex-col items-center">
         <Image

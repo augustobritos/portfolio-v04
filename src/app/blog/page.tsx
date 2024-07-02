@@ -7,6 +7,7 @@ import {
   PageHeaderDescription,
   PageHeaderHeading,
 } from "@/components/shared/page-header";
+import DynamicBreadcrumb from "@/components/shared/dynamic-breadcrumb";
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -29,12 +30,14 @@ const Blog = async () => {
         </PageHeaderDescription>
       </PageHeader>
 
+      <DynamicBreadcrumb className="my-4"/>
+
       {posts.length === 0 ? (
         <Text as="p" size="body" className="text-center">
           No posts available.
         </Text>
       ) : (
-        <div className="my-20">
+        <div className="mt-10">
           <PostList posts={posts} />
         </div>
       )}

@@ -34,7 +34,9 @@ const Blog = async () => {
           No posts available.
         </Text>
       ) : (
-        <PostList posts={posts} />
+        <div className="my-20">
+          <PostList posts={posts} />
+        </div>
       )}
     </main>
   );

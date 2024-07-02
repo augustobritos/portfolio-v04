@@ -6,7 +6,7 @@ interface PostListProps {
 
 const PostList = async ({ posts }: PostListProps) => {
   return (
-    <ul className="my-20">
+    <ul>
       {posts.map((post, index) => (
         <li key={index}>
           <PostItem post={post} />

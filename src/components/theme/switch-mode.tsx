@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { Switch } from "@/components/ui/switch";
 import { Label } from "../ui/label";
@@ -13,7 +13,12 @@ const ModeSwitch = () => {
 
   return (
     <div className="flex items-center space-x-2">
-      <Switch id="swicht-mode" onCheckedChange={handleToggleTheme} />
+      <Switch
+        id="swicht-mode"
+        defaultValue={"system"}
+        defaultChecked={theme === "light"}
+        onCheckedChange={handleToggleTheme}
+      />
       <Label htmlFor="swicht-mode">Light</Label>
     </div>
   );

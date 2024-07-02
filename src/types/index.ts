@@ -15,6 +15,7 @@ interface Project {
   tag: string;
   details: string;
   link?: Link;
+  github?: Link;
 }
 
 interface Post {

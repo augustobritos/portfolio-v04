@@ -7,8 +7,8 @@ const LatestPosts = async () => {
   const posts: Post[] = await getAllPosts();
 
   return (
-    <section className="max-w-2xl w-full mx-auto">
-      <Text as="h2" size="heading">
+    <section className="max-w-2xl w-full mx-auto py-4">
+      <Text as="h2" size="subheading">
         Latest Posts
       </Text>
       {posts.length === 0 ? (

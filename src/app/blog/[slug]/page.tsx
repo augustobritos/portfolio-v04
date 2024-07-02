@@ -29,7 +29,7 @@ export default async function BlogPost({ params }: Props) {
       Post unavailable.
     </Text>
   ) : (
-    <article className="mt-8 px-8 mx-auto max-w-2xl">
+    <article className="p-4 mx-auto max-w-2xl">
       <Text
         as="h1"
         size="heading"
@@ -49,10 +49,10 @@ export default async function BlogPost({ params }: Props) {
           alt={post.titleImage.alt || `${post.title} image`}
           width={800}
           height={800}
-          className="mt-8 border"
+          className="my-8"
         />
       </div>
-      <div className="mt-20 px-4 prose dark:prose-invert prose-li:marker:text-foreground mx-auto w-full max-w-2xl mb-20">
+      <div className="prose dark:prose-invert prose-li:marker:text-foreground mx-auto w-full max-w-2xl pb-20 text-balance">
         <PortableText value={post.content} />
       </div>
     </article>

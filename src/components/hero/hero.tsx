@@ -7,12 +7,11 @@ import StatusBadge from "../shared/status-badge";
 
 const Hero = () => {
   return (
-    <PageHeader>
+    <PageHeader className="py-8">
       <PageHeaderHeading className="text-balance">
-        Creating digital spaces people love. Mixing creativity and technology to
-        create a meaningful impact in the world.
+        Mixing creativity and technology to create a meaningful impact in the world.
       </PageHeaderHeading>
-      <PageHeaderDescription>
+      <PageHeaderDescription className="text-end">
         <StatusBadge />
       </PageHeaderDescription>
     </PageHeader>

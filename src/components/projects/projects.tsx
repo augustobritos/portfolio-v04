@@ -13,8 +13,8 @@ const Projects = () => {
   };
 
   return (
-    <section className="max-w-2xl w-full mx-auto my-20 ">
-      <Text as="h2" size="heading">
+    <section className="max-w-2xl w-full mx-auto py-4">
+      <Text as="h2" size="subheading">
         Latest Projects
       </Text>
       <ProjectList

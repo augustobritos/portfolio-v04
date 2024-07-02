@@ -18,7 +18,7 @@ const Blog = async () => {
   const posts: Post[] = await getAllPosts();
 
   return (
-    <main className="max-w-2xl mx-auto pt-10">
+    <main className="max-w-2xl mx-auto p-4">
       <PageHeader>
         <PageHeaderHeading className="text-balance">
           <Text as="h1" size="hero" position="left">

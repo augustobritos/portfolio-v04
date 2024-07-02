@@ -43,12 +43,11 @@ const MobileNav = ({ links }: Menu) => {
   );
 
   return (
-    <nav className="md:hidden">
+    <nav className="md:hidden pt-4">
       <Button
         onClick={() => setIsMenuOpen(!isMenuOpen)}
         variant="ghost"
         aria-label="Toggle menu"
-        className="pt-8"
       >
         {!isMenuOpen && menuIcon}
       </Button>
@@ -62,31 +61,36 @@ const MobileNav = ({ links }: Menu) => {
           ></div>
           <div
             className={cn(
-              "fixed inset-y-0 left-0 w-64 bg-background shadow-lg z-50 transition-transform duration-500 ease-in-out",
+              "fixed inset-y-0 left-0 w-80 bg-background shadow-xl z-50 transition-transform duration-500 ease-in-out",
               isMenuOpen ? "translate-x-0" : "-translate-x-full"
             )}
           >
-            <div className="flex flex-col pt-4">
+            <div className="flex flex-col p-4">
               <div className="flex items-center justify-between">
                 <div className="flex items-center">
-                  <Image
-                    src="/images/logo.png"
-                    alt="logo"
-                    width={40}
-                    height={40}
-                  />
-                  <span className="font-medium">Augusto Britos</span>
+                  <Link href={"/"} className="flex items-center">
+                    <Image
+                      src="/images/logo.png"
+                      alt="logo"
+                      width={40}
+                      height={40}
+                    />
+                    <span className="font-bold">Augusto Britos</span>
+                  </Link>
                 </div>
                 <Button
                   variant="ghost"
                   onClick={() => setIsMenuOpen(false)}
                   aria-label="Close menu"
                 >
-                  <X size={18} className="border rounded-md" />
+                  <X
+                    size={18}
+                    className="border border-solid border-foreground/50 rounded-md"
+                  />
                 </Button>
               </div>
 
-              <div className="flex flex-col pl-10">
+              <div className="flex flex-col pl-10 pt-4 gap-2">
                 {links.map(
                   ({ title, href, rel, target, active }) =>
                     active && (
@@ -95,11 +99,11 @@ const MobileNav = ({ links }: Menu) => {
                         href={href}
                         rel={rel}
                         target={target}
-                        className="flex items-center"
+                        className="flex items-center tracking-wide capitalize font-medium"
                       >
                         {title}
                         {target === "_blank" && (
-                          <ArrowUpRight size={18} strokeWidth={1} />
+                          <ArrowUpRight size={18} strokeWidth={1.5} />
                         )}
                       </Link>
                     )

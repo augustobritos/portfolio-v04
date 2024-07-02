@@ -2,10 +2,10 @@ export const MAIN_MENU: Menu = {
   links: [
     {
       title: "blog",
-      href: "/#blog",
+      href: "/blog",
       rel: "noopener",
       target: "_self",
-      active: false,
+      active: true,
     },
     {
       title: "contact",

@@ -16,3 +16,13 @@ interface Project {
   details: string;
   link?: Link;
 }
+
+interface Post {
+  title: string;
+  smallDescription: string;
+  titleImage: any;
+  content: any;
+  slug: string;
+  author: Object;
+  publishedDate: string;
+}

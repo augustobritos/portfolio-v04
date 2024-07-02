@@ -20,8 +20,8 @@ interface Project {
 interface Post {
   title: string;
   smallDescription: string;
-  titleImage: any;
-  content: any;
+  titleImage: SanityImage;
+  content: PostContent;
   slug: string;
   author: Object;
   publishedDate: string;

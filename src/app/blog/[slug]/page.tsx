@@ -23,7 +23,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function BlogPost({ params }: Props) {
   const post: Post = await getPost(params.slug);
 
-  return (
+  return post?.content?.length === 0 ? (
+    <Text as="p" size="body" className="text-center">
+      Post unavailable.
+    </Text>
+  ) : (
     <article className="mt-8 px-8 mx-auto max-w-2xl">
       <Text
         as="h1"
@@ -39,7 +43,7 @@ export default async function BlogPost({ params }: Props) {
         <Image
           priority
           src={urlFor(post.titleImage).url()}
-          alt={post.titleImage.alt}
+          alt={post.titleImage.alt || `${post.title} image`}
           width={800}
           height={800}
           className="mt-8 border"

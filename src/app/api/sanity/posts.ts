@@ -11,9 +11,13 @@ const getAllPosts = async () => {
         publishedDate
     }`;
 
-  const data = await client.fetch(query);
-
-  return data;
+  try {
+    const data: Post[] = await client.fetch(query);
+    return data;
+  } catch (error) {
+    console.error("Error fetching posts:", error);
+    throw new Error("Failed to fetch posts");
+  }
 };
 
 const getPost = async (slug: string) => {
@@ -27,9 +31,13 @@ const getPost = async (slug: string) => {
           publishedDate
       }[0]`;
 
-  const data = await client.fetch(query);
-
-  return data;
+  try {
+    const data: Post = await client.fetch(query);
+    return data;
+  } catch (error) {
+    console.error("Error fetching post:", error);
+    throw new Error("Failed to fetch post");
+  }
 };
 
 export { getAllPosts, getPost };

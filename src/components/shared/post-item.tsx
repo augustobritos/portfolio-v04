@@ -1,8 +1,9 @@
 import Link from "next/link";
 import Text from "./text";
+import PostDetails from "./post-details";
 
 const PostItem = ({ post }: { post: Post }) => {
-  const { slug, title, smallDescription } = post;
+  const { slug, title, smallDescription, publishedDate, content } = post;
 
   return (
     <Link
@@ -16,6 +17,7 @@ const PostItem = ({ post }: { post: Post }) => {
         <Text className="line-clamp-2 text-foreground/80">
           {smallDescription}
         </Text>
+        <PostDetails publishedDate={publishedDate} content={content} />
       </article>
     </Link>
   );

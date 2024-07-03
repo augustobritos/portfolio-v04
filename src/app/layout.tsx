@@ -5,6 +5,7 @@ import Navbar from "@/components/navbar/navbar";
 import { ThemeProvider } from "@/components/theme/theme-provider";
 import TailwindIndicator from "@/components/shared/tailwind-indicator";
 import { siteConfig } from "@/config/site";
+import { Analytics } from "@vercel/analytics/react"
 
 export const metadata: Metadata = {
   title: {
@@ -61,6 +62,7 @@ export default function RootLayout({
         >
           <Navbar />
           {children}
+          <Analytics />
           <TailwindIndicator />
         </ThemeProvider>
       </body>

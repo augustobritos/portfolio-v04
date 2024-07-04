@@ -39,17 +39,11 @@ const NoteForm = () => {
 
   const onSubmit = async (data: NoteValues): Promise<void> => {
     console.log(" ON SUBMIT...");
-
+    
     try {
-      const endpoint = process.env.NOTES_ENDPOINT;
-      if (!endpoint) {
-        console.log("NO ENDPOINT !");
+     
 
-        throw new Error("Endpoint is not defined.");
-      }
-      console.log("ENPOINT: ", endpoint);
-
-      const response = await fetch(endpoint, {
+      const response = await fetch("/notes/api", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -58,6 +52,7 @@ const NoteForm = () => {
       });
 
       console.log("RESPONSE: ", response);
+      
 
       if (response.ok) {
         toast({ title: "Note sent." });

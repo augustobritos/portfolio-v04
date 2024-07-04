@@ -1,12 +1,13 @@
-import type { Metadata } from "next";
-import "./globals.css";
-import NeueMontreal from "./fonts";
 import Navbar from "@/components/navbar/navbar";
-import { ThemeProvider } from "@/components/theme/theme-provider";
 import TailwindIndicator from "@/components/shared/tailwind-indicator";
+import { ThemeProvider } from "@/components/theme/theme-provider";
+import { Toaster } from "@/components/ui/toaster";
 import { siteConfig } from "@/config/site";
-import { Analytics } from "@vercel/analytics/react"
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import type { Metadata } from "next";
+import NeueMontreal from "./fonts";
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
@@ -63,6 +64,7 @@ export default function RootLayout({
         >
           <Navbar />
           {children}
+          <Toaster />
           <Analytics />
           <SpeedInsights />
           <TailwindIndicator />

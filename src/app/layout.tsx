@@ -8,6 +8,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
 import NeueMontreal from "./fonts";
 import "./globals.css";
+import Footer from "@/components/footer/footer";
 
 export const metadata: Metadata = {
   title: {
@@ -40,12 +41,11 @@ export const metadata: Metadata = {
     title: siteConfig.name,
     description: siteConfig.description,
     images: [siteConfig.ogImage],
-    creator: "@shadcn",
+    creator: siteConfig.name,
   },
   icons: {
     icon: "/favicon.ico",
   },
-  manifest: `${siteConfig.url}/site.webmanifest`,
 };
 
 export default function RootLayout({
@@ -56,19 +56,22 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={NeueMontreal.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <Navbar />
-          {children}
-          <Toaster />
-          <Analytics />
-          <SpeedInsights />
-          <TailwindIndicator />
-        </ThemeProvider>
+        <main className="flex flex-col max-w-2xl mx-auto w-full mt-auto min-h-screen">
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <Navbar />
+            {children}
+            <Toaster />
+            <Analytics />
+            <SpeedInsights />
+            <TailwindIndicator />
+            <Footer />
+          </ThemeProvider>
+        </main>
       </body>
     </html>
   );

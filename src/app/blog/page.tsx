@@ -14,6 +14,14 @@ export const metadata: Metadata = {
   description: "Explore my digital realm",
 };
 
+export async function generateStaticParams() {
+  const posts: Post[] = await getAllPosts();
+
+  return posts.map(({ slug }) => ({ slug: slug }));
+}
+
+export const revalidate = 0;
+
 const Blog = async () => {
   const posts: Post[] = await getAllPosts();
 
@@ -30,7 +38,7 @@ const Blog = async () => {
         </PageHeaderDescription>
       </PageHeader>
 
-      <DynamicBreadcrumb className="my-4"/>
+      <DynamicBreadcrumb className="my-4" />
 
       {posts.length === 0 ? (
         <Text as="p" size="body" className="text-center">

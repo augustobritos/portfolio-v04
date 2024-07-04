@@ -21,6 +21,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
+export const revalidate = 0;
+
 export default async function BlogPost({ params }: Props) {
   const post: Post = await getPost(params.slug);
 

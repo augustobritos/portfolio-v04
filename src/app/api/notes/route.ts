@@ -1,5 +1,6 @@
 import { EmailTemplate } from "@/components/email/email-template";
-import { NextRequest, NextResponse } from "next/server";
+import { NextApiRequest, NextApiResponse } from "next";
+import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
@@ -14,11 +15,11 @@ interface EmailSendRequest {
   react: React.ReactElement;
 }
 
-export async function POST(req: NextRequest, res: NextResponse) {
+export async function POST(req: NextApiRequest, res: NextApiResponse) {
   console.log("POST REQUEST...");
-  const note = await req.json();
+  const note = await req.body;
 
-  console.log("NOTE...");
+  console.log("NOTE...", note);
 
   try {
     const { data, error } = await resend.emails.send({

@@ -13,8 +13,13 @@ interface EmailSendRequest {
   react: React.ReactElement;
 }
 
-export async function POST(req: Request, res: Response) {
-  console.log("POST REQUEST...");
+export async function POST(req: Request) {
+  
+  if (req.method === 'POST') {
+    console.log("POST REQUEST...");
+  }
+  
+
   const note = await req.json();
 
   console.log("NOTE...");

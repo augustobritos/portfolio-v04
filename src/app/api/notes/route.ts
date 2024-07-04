@@ -26,11 +26,11 @@ export async function POST(req: NextRequest, res: NextResponse) {
     } as EmailSendRequest);
 
     if (error) {
-      return Response.json({ error }, { status: 500 });
+      return NextResponse.json({ error }, { status: 500 });
     }
 
-    return Response.json(data);
+    return NextResponse.json(data);
   } catch (error) {
-    return Response.json({ error }, { status: 500 });
+    return NextResponse.json({ error }, { status: 500 });
   }
 }

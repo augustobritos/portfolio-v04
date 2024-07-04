@@ -41,9 +41,16 @@ const NoteForm = () => {
     console.log(" ON SUBMIT...");
     
     try {
-     
+      const endpoint = process.env.NEXT_PUBLIC_NOTES_ENDPOINT;
+      if (!endpoint) {
+        console.log("NO ENDPOINT !");
+        
+        throw new Error("Endpoint is not defined.");
+      }
+      console.log("ENPOINT: ", endpoint);
+      
 
-      const response = await fetch("/notes/api", {
+      const response = await fetch(endpoint, { 
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -51,7 +58,7 @@ const NoteForm = () => {
         body: JSON.stringify(data),
       });
 
-      console.log("RESPONSE: ", response);
+      console.log("RESPONSE: ", response); 
       
 
       if (response.ok) {

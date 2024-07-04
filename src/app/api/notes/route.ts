@@ -15,11 +15,11 @@ interface EmailSendRequest {
   react: React.ReactElement;
 }
 
-export async function POST(req: NextApiRequest, res: NextApiResponse) {
+export async function POST(req: Request, res: Response) {
   console.log("POST REQUEST...");
-  const note = await req.body;
+  const note = await req.json();
 
-  console.log("NOTE...", note);
+  console.log("NOTE...");
 
   try {
     const { data, error } = await resend.emails.send({

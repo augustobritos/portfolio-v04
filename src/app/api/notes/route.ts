@@ -15,7 +15,10 @@ interface EmailSendRequest {
 }
 
 export async function POST(req: NextRequest, res: NextResponse) {
+  console.log("POST REQUEST...");
   const note = await req.json();
+
+  console.log("NOTE...");
 
   try {
     const { data, error } = await resend.emails.send({
@@ -26,11 +29,15 @@ export async function POST(req: NextRequest, res: NextResponse) {
     } as EmailSendRequest);
 
     if (error) {
+      console.error("ERROR: ", error);
+
       return NextResponse.json({ error }, { status: 500 });
     }
 
     return NextResponse.json(data);
   } catch (error) {
+    console.error("ERROR: ", error);
+
     return NextResponse.json({ error }, { status: 500 });
   }
 }

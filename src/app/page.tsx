@@ -1,5 +1,6 @@
 import Hero from "@/components/hero/hero";
 import LatestPosts from "@/components/latest-posts/latest-posts";
+import Note from "@/components/note/note";
 import Projects from "@/components/projects/projects";
 import { Separator } from "@/components/ui/separator";
 
@@ -10,6 +11,7 @@ export default function Home() {
       <Separator className="my-8"/>
       <Projects />
       <LatestPosts />
+      <Note />
     </main>
   );
 }

@@ -38,11 +38,17 @@ const NoteForm = () => {
   }, [isSubmitSuccessful, reset, setFocus]);
 
   const onSubmit = async (data: NoteValues): Promise<void> => {
+    console.log(" ON SUBMIT...");
+    
     try {
       const endpoint = process.env.NEXT_PUBLIC_NOTES_ENDPOINT;
       if (!endpoint) {
+        console.log("NO ENDPOINT !");
+        
         throw new Error("Endpoint is not defined.");
       }
+      console.log("ENPOINT: ", endpoint);
+      
 
       const response = await fetch(endpoint, {
         method: "POST",
@@ -51,6 +57,9 @@ const NoteForm = () => {
         },
         body: JSON.stringify(data),
       });
+
+      console.log("RESPONSE: ", response);
+      
 
       if (response.ok) {
         toast({ title: "Note sent." });

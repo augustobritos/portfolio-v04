@@ -1,12 +1,10 @@
 import { EmailTemplate } from "@/components/email/email-template";
-import { NextApiRequest, NextApiResponse } from "next";
-import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-const fromEmail = process.env.FROM_EMAIL_ADDRESS;
-const toEmail = process.env.TO_EMAIL_ADDRESS;
-const emailSubject = process.env.EMAIL_SUBJECT;
+const resend = new Resend(process.env.RESEND_API_KEY); //OK
+const fromEmail = process.env.FROM_EMAIL_ADDRESS; //OK
+const toEmail = process.env.TO_EMAIL_ADDRESS; //OK
+const emailSubject = process.env.EMAIL_SUBJECT; //OK
 
 interface EmailSendRequest {
   from: string;
@@ -32,13 +30,13 @@ export async function POST(req: Request, res: Response) {
     if (error) {
       console.error("ERROR: ", error);
 
-      return NextResponse.json({ error }, { status: 500 });
+      return Response.json({ error }, { status: 500 });
     }
 
-    return NextResponse.json(data);
+    return Response.json(data);
   } catch (error) {
     console.error("ERROR: ", error);
 
-    return NextResponse.json({ error }, { status: 500 });
+    return Response.json({ error }, { status: 500 });
   }
 }

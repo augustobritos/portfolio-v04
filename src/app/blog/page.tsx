@@ -27,18 +27,12 @@ const Blog = async () => {
 
   return (
     <main className="max-w-2xl mx-auto p-4">
-      <PageHeader>
-        <PageHeaderHeading className="text-balance">
-          <Text as="h1" size="hero" position="left">
-            Blog
-          </Text>
-        </PageHeaderHeading>
-        <PageHeaderDescription>
-          <Text as="h2">Explore my digital realm</Text>
-        </PageHeaderDescription>
+      <PageHeader className="py-8">
+        <PageHeaderHeading>Blog</PageHeaderHeading>
+        <PageHeaderDescription>Explore my digital realm</PageHeaderDescription>
       </PageHeader>
 
-      <DynamicBreadcrumb className="my-4" />
+      <DynamicBreadcrumb />
 
       {posts.length === 0 ? (
         <Text as="p" size="body" className="text-center">

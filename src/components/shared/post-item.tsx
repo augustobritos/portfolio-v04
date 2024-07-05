@@ -8,7 +8,7 @@ const PostItem = ({ post }: { post: Post }) => {
   return (
     <Link
       href={`blog/${slug}`}
-      className="flex rounded-md p-4 transition-colors hover:bg-accent/80"
+      className="flex rounded-md p-4 transition-colors hover:bg-accent/80 border-b-[0.5px]"
     >
       <article className="flex flex-col gap-2 rounded-md">
         <Text as="h3" weight="medium" className="line-clamp-2">

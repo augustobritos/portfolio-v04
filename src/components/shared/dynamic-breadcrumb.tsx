@@ -35,16 +35,18 @@ const DynamicBreadcrumb = ({ className }: DynamicBreadCrumbProps) => {
         <BreadcrumbSeparator />
         {breadcrumbItems.map((item, index) => (
           <React.Fragment key={index}>
-            <BreadcrumbItem>
-              {index === breadcrumbItems.length - 1 ? (
+            {index === breadcrumbItems.length - 1 ? (
+              <BreadcrumbItem>
                 <BreadcrumbPage>{item.name}</BreadcrumbPage>
-              ) : (
-                <React.Fragment>
+              </BreadcrumbItem>
+            ) : (
+              <React.Fragment>
+                <BreadcrumbItem>
                   <BreadcrumbLink href={item.path}>{item.name}</BreadcrumbLink>
-                  <BreadcrumbSeparator />
-                </React.Fragment>
-              )}
-            </BreadcrumbItem>
+                </BreadcrumbItem>
+                <BreadcrumbSeparator />
+              </React.Fragment>
+            )}
           </React.Fragment>
         ))}
       </BreadcrumbList>

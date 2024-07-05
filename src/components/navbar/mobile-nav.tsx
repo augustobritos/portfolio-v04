@@ -68,7 +68,11 @@ const MobileNav = ({ links }: Menu) => {
             <div className="flex flex-col p-4">
               <div className="flex items-center justify-between">
                 <div className="flex items-center">
-                  <Link href={"/"} className="flex items-center">
+                  <Link
+                    href={"/"}
+                    className="flex items-center"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
                     <Image
                       src="/images/logo.png"
                       alt="logo"
@@ -100,6 +104,7 @@ const MobileNav = ({ links }: Menu) => {
                         rel={rel}
                         target={target}
                         className="flex items-center tracking-wide capitalize font-medium"
+                        onClick={() => setIsMenuOpen(false)}
                       >
                         {title}
                         {target === "_blank" && (

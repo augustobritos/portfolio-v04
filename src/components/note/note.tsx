@@ -4,7 +4,7 @@ import NoteForm from "./note-form";
 
 const Note = () => {
   return (
-    <section className="max-w-2xl w-full mx-auto py-4">
+    <section className="max-w-2xl w-full mx-auto py-4" id="contact">
       <Text size="subheading">Get In Touch</Text>
       <div>
         <p className="text-muted-foreground my-2">

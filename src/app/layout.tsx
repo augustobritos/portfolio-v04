@@ -54,7 +54,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={NeueMontreal.className}>
         <main className="flex flex-col max-w-2xl mx-auto w-full mt-auto min-h-screen">
           <ThemeProvider

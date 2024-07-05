@@ -4,7 +4,7 @@ import { getAllPosts } from "./api/sanity/posts";
 export default async function sitemap() {
   const baseUrl = siteConfig.url;
 
-  const posts = await getAllPosts();
+  const posts: Post[] = await getAllPosts();
 
   const postUrls = posts?.map((post) => ({
     url: `${baseUrl}/blog/${post?.slug}`,

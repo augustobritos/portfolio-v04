@@ -44,7 +44,9 @@ export const metadata: Metadata = {
     creator: siteConfig.name,
   },
   icons: {
-    icon: "/favicon.ico",
+    icon: ["/images/favicon.ico"],
+    apple: ["/images/apple-touch-icon.png"],
+    shortcut: ["/images/apple-touch-icon.png"]
   },
 };
 

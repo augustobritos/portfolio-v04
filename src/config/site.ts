@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: "Augusto's Life Insights.",
   url: "https://augustobritos.com",
-  ogImage: "https://augustobritos.com/og.jpg",
+  ogImage: "https://augustobritos.com/opengraph-image.png",
   description: "Explore my digital realm!",
   links: {
     twitter: "https://twitter.com/augustobritos",

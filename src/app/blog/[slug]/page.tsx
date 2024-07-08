@@ -1,4 +1,4 @@
-import { getPost } from "@/app/api/sanity/posts";
+import { getAllPosts, getPost } from "@/app/api/sanity/posts";
 import { urlFor } from "@/lib/sanity";
 import { Metadata } from "next";
 import { PortableText } from "next-sanity";
@@ -6,6 +6,7 @@ import Image from "next/image";
 
 import Text from "@/components/shared/text";
 import DynamicBreadcrumb from "@/components/shared/dynamic-breadcrumb";
+import { siteConfig } from "@/config/site";
 
 type Props = {
   params: { slug: string };
@@ -15,9 +16,39 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const slug = params.slug;
   const { title, smallDescription }: Post = await getPost(slug);
 
+  const ogParams = new URLSearchParams();
+  ogParams.set("slug", slug);
+
   return {
     title: title,
     description: smallDescription,
+    metadataBase: new URL(siteConfig.url),
+    authors: siteConfig.authors,
+    creator: siteConfig.name,
+    openGraph: {
+      type: "article",
+      locale: "en_US",
+      url: `/blog/${slug}`,
+      title: title,
+      description: smallDescription,
+      images: [
+        {
+          url: `/api/og?${ogParams.toString()}`,
+          width: 1200,
+          height: 630,
+          alt: title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: title,
+      description: smallDescription,
+      creator: siteConfig.name,
+    },
+    icons: {
+      icon: "/favicon.ico",
+    },
   };
 }
 

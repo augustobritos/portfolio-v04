@@ -1,6 +1,6 @@
 export const siteConfig = {
   name: "Augusto's Life Insights.",
-  url: "https://augustobritos.com",
+  url: "https://augustobritos.online",
   ogImage: "https://augustobritos.com/opengraph-image.png",
   description: "Explore my digital realm!",
   links: {
@@ -17,7 +17,7 @@ export const siteConfig = {
   ],
   authors: {
     name: "Augusto Britos",
-    url: "https://augustobritos.com",
+    url: "https://augustobritos.online",
   },
 };
 
